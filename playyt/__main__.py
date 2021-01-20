@@ -22,7 +22,7 @@ def playyt():
     search_term=sys.argv[1]
     for file in files:
         if search_term.lower() in file.lower():
-            cmd="termux-media-player play "+file
+            cmd="termux-media-player play '"+file+"'"
             os.system(cmd)
             exit()
     title,link=getvideos(search_term)
