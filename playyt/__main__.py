@@ -17,7 +17,10 @@ def getvideos(search_term):
     titles=[result.text for result in results]
     youtube_link="https://www.youtube.com"+links[0]
     return titles[0],youtube_link
-files = [f for f in os.listdir(os.getcwd()) if os.path.isfile(os.path.join(os.getcwd(), f))]
+try:
+    files = [f for f in os.listdir(os.getcwd()) if os.path.isfile(os.path.join(os.getcwd(), f))]
+except:
+    print("files failed!")
 search_term=sys.argv[1]
 for file in files:
     if search_term.lower() in file.lower():
