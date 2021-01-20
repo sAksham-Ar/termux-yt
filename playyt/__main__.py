@@ -24,7 +24,7 @@ for file in files:
          cmd="termux-media-player play "+file
          try:
             os.system(cmd)
-        except:
+         except:
             print("fails at first")
          exit()
 title,link=getvideos(search_term)
