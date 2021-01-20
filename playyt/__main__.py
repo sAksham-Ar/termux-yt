@@ -21,8 +21,11 @@ files = [f for f in os.listdir(os.getcwd()) if os.path.isfile(os.path.join(os.ge
 search_term=sys.argv[1]
 for file in files:
     if search_term.lower() in file.lower():
-         os.system("termux-media-player play "+file)
+         cmd="termux-media-player play "+file
+         os.system(cmd)
          exit()
 title,link=getvideos(search_term)
-os.system("youtube-dl -x -o '%(title)s.%(ext)s' "+link)
-os.system("termux-media-player play '"+title+".opus'")
+cmd="youtube-dl -x -o '%(title)s.%(ext)s' "+link
+os.system(cmd)
+cmd="termux-media-player play '"+title+".opus'"
+os.system(cmd)
