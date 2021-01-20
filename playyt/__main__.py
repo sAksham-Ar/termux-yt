@@ -26,9 +26,9 @@ def playyt():
             os.system(cmd)
             exit()
     title,link=getvideos(search_term)
-    cmd="youtube-dl -x -o '%(title)s.%(ext)s' "+link
+    cmd="youtube-dl --audio-format mp3 -x -o '%(title)s.%(ext)s' "+link
     os.system(cmd)
-    cmd="termux-media-player play '"+title+"'"
+    cmd="termux-media-player play '"+title+".mp3'"
     os.system(cmd)
 if __name__ == "__main__":
     playyt()
