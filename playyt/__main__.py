@@ -22,10 +22,19 @@ search_term=sys.argv[1]
 for file in files:
     if search_term.lower() in file.lower():
          cmd="termux-media-player play "+file
-         os.system(cmd)
+         try:
+            os.system(cmd)
+        except:
+            print("fails at first")
          exit()
 title,link=getvideos(search_term)
-cmd="youtube-dl -x -o '%(title)s.%(ext)s' "+link
-os.system(cmd)
-cmd="termux-media-player play '"+title+".opus'"
-os.system(cmd)
+try:
+    cmd="youtube-dl -x -o '%(title)s.%(ext)s' "+link
+    os.system(cmd)
+except:
+    print("fails at second")
+try:
+    cmd="termux-media-player play '"+title+".opus'"
+    os.system(cmd)
+except:
+    print("fails at third")
