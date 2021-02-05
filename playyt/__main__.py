@@ -24,7 +24,8 @@ def playyt():
         while 1:
             files = [f for f in os.listdir(os.getcwd()+'/songs') if os.path.isfile(os.path.join(os.getcwd(), f))]
             i=0
-            print(files)
+            print(os.getcwd()+'/songs')
+            print(os.listdir(os.getcwd()+'/songs') )
             for file in files:
                 print("{:<3} {:<50}".format(str(i+1),file))
                 i+=1
