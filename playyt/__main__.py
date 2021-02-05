@@ -22,16 +22,16 @@ def playyt():
         os.system('cd ~/songs')
         os.system('clear')
         while 1:
-            files = [f for f in os.listdir(os.getcwd()) if os.path.isfile(os.path.join(os.getcwd(), f))]
+            files = [f for f in os.listdir('~/songs') if os.path.isfile(os.path.join(os.getcwd(), f))]
             i=0
             for file in files:
                 print("{:3}{:50}".format(i+1,file))
                 i+=1
             print("song_number:song to play,q:quit,d:download")
             choice=input()
-            if choice==q:
+            if choice=='q':
                 exit()
-            elif choice==d:
+            elif choice=='d':
                 print("Enter the name of the song:")
                 search_term=input()
                 title,link=getvideos(search_term)
