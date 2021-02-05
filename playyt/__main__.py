@@ -19,7 +19,7 @@ def playyt():
         youtube_link="https://www.youtube.com"+links[0]
         return titles[0],youtube_link
     def interface():
-        os.system('cd ~/songs')
+        os.system('cd songs')
         os.system('clear')
         while 1:
             files = [f for f in os.listdir(os.getcwd()+'/songs') if os.path.isfile(os.path.join(os.getcwd(), f))]
