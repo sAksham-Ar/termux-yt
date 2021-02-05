@@ -21,7 +21,7 @@ def playyt():
     def interface():
         os.system('cd songs')
         while 1:
-            # os.system('clear')
+            os.system('clear')
             files = [f for f in os.listdir(os.getcwd()+'/songs') ]
             i=0
             for file in files:
@@ -33,9 +33,11 @@ def playyt():
             print("song_number:song to play,q:quit,d:download,p:pause,r:resume,n:next,pr:previous")
             choice=input()
             if choice=='n':
+                os.system('termux-media-player stop')
                 current=min(current+1,len(files)-1)
                 choice=current
             elif choice =='p':
+                os.system('termux-media-player stop')
                 current=max(current-1,0)
                 choice=current
             if choice=='q':
@@ -47,7 +49,7 @@ def playyt():
                 search_term=input()
                 title,link=getvideos(search_term)
                 cmd="youtube-dl --add-metadata --audio-format mp3 -x -o '%(title)s.%(ext)s' "+link
-                os.system(cmd)
+                os.system(cmd
             elif choice=='p':
                 cmd="termx-media-player pause"
                 os.system(cmd)
