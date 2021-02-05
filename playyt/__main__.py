@@ -57,7 +57,7 @@ def playyt():
             else:
                 title=files[int(choice)-1]
                 current=int(choice)-1
-                cmd="termux-media-player play 'song/"+title+"'"
+                cmd="termux-media-player play 'songs/"+title+"'"
                 os.system(cmd)
     interface()
     
