@@ -27,7 +27,9 @@ def playyt():
             for file in files:
                 print("{:<3} {:<50}".format(str(i+1),file))
                 i+=1
+            print('-'*100)
             os.system('termux-media-player info')
+            print('-'*100)
             print("song_number:song to play,q:quit,d:download,p:pause,r:resume,n:next,pr:previous")
             choice=input()
             if choice=='n':
