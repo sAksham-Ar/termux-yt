@@ -33,6 +33,7 @@ def playyt():
                 os.system('clear')
                 exit()
             elif choice=='d':
+                os.system('clear')
                 print("Enter the name of the song:")
                 search_term=input()
                 title,link=getvideos(search_term)
@@ -41,6 +42,7 @@ def playyt():
             else:
                 title=files[int(choice)-1]
                 cmd="termux-media-player play '"+title
+                os.system(cmd)
     interface()
     
 
