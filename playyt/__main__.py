@@ -48,7 +48,7 @@ def playyt():
                 print("Enter the name of the song:")
                 search_term=input()
                 title,link=getvideos(search_term)
-                cmd="cd songs;youtube-dl --add-metadata --audio-format mp3 -x -o '%(title)s.%(ext)s';cd .."+link
+                cmd="youtube-dl --add-metadata --audio-format mp3 -x -o 'songs/%(title)s.%(ext)s'"+link
                 os.system(cmd)
             elif choice=='p':
                 os.system('termux-media-player stop')
