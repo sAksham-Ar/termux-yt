@@ -21,7 +21,7 @@ def playyt():
     def interface():
         os.system('cd songs')
         while 1:
-            os.system('clear')
+            # os.system('clear')
             files = [f for f in os.listdir(os.getcwd()+'/songs') ]
             i=0
             for file in files:
