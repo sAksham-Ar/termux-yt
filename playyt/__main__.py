@@ -18,17 +18,30 @@ def playyt():
         titles=[result.text for result in results]
         youtube_link="https://www.youtube.com"+links[0]
         return titles[0],youtube_link
-    files = [f for f in os.listdir(os.getcwd()) if os.path.isfile(os.path.join(os.getcwd(), f))]
-    search_term=sys.argv[1]
-    for file in files:
-        if search_term.lower() in file.lower():
-            cmd="termux-media-player play '"+file+"'"
-            os.system(cmd)
-            exit()
-    title,link=getvideos(search_term)
-    cmd="youtube-dl --add-metadata --audio-format mp3 -x -o '%(title)s.%(ext)s' "+link
-    os.system(cmd)
-    cmd="termux-media-player play '"+title+".mp3'"
-    os.system(cmd)
+    def interface():
+        os.system('cd ~/songs')
+        os.system('clear')
+        while 1:
+            files = [f for f in os.listdir(os.getcwd()) if os.path.isfile(os.path.join(os.getcwd(), f))]
+            i=0
+            for file in files:
+                print("{:3}{:50}".format(i+1,file))
+                i+=1
+            print("song_number:song to play,q:quit,d:download")
+            choice=input()
+            if choice==q:
+                exit()
+            elif choice==d:
+                print("Enter the name of the song:")
+                search_term=input()
+                title,link=getvideos(search_term)
+                cmd="youtube-dl --add-metadata --audio-format mp3 -x -o '%(title)s.%(ext)s' "+link
+                os.system(cmd)
+            else:
+                title=files[choice-1]
+                cmd="termux-media-player play '"+title
+    interface()
+    
+
 if __name__ == "__main__":
     playyt()
