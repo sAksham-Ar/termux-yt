@@ -22,7 +22,7 @@ def playyt():
         os.system('cd ~/songs')
         os.system('clear')
         while 1:
-            files = [f for f in os.listdir('~/songs') if os.path.isfile(os.path.join(os.getcwd(), f))]
+            files = [f for f in os.listdir(os.getcwd()+'/songs') if os.path.isfile(os.path.join(os.getcwd(), f))]
             i=0
             for file in files:
                 print("{:3}{:50}".format(i+1,file))
