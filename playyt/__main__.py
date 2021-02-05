@@ -30,7 +30,7 @@ def playyt():
             print('-'*100)
             os.system('termux-media-player info')
             print('-'*100)
-            print("song_number:song to play,q:quit,d:download,p:pause,r:resume,n:next,pr:previous")
+            print("song_number:song to play,q:quit,d:download,p:pause,n:next,pr:previous")
             choice=input()
             if choice=='n':
                 os.system('termux-media-player stop')
@@ -48,14 +48,11 @@ def playyt():
                 print("Enter the name of the song:")
                 search_term=input()
                 title,link=getvideos(search_term)
-                cmd="youtube-dl --add-metadata --audio-format mp3 -x -o '%(title)s.%(ext)s' "+link
+                cmd="cd songs;youtube-dl --add-metadata --audio-format mp3 -x -o '%(title)s.%(ext)s';cd .."+link
                 os.system(cmd)
             elif choice=='p':
                 os.system('termux-media-player stop')
                 cmd="termx-media-player pause"
-                os.system(cmd)
-            elif choice=='r':
-                cmd="termx-media-player resume"
                 os.system(cmd)
             else:
                 title=files[int(choice)-1]
