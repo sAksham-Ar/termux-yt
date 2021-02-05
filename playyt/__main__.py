@@ -49,7 +49,7 @@ def playyt():
                 search_term=input()
                 title,link=getvideos(search_term)
                 cmd="youtube-dl --add-metadata --audio-format mp3 -x -o '%(title)s.%(ext)s' "+link
-                os.system(cmd
+                os.system(cmd)
             elif choice=='p':
                 cmd="termx-media-player pause"
                 os.system(cmd)
