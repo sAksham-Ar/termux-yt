@@ -39,7 +39,7 @@ def playyt():
                 cmd="youtube-dl --add-metadata --audio-format mp3 -x -o '%(title)s.%(ext)s' "+link
                 os.system(cmd)
             else:
-                title=files[choice-1]
+                title=files[int(choice)-1]
                 cmd="termux-media-player play '"+title
     interface()
     
