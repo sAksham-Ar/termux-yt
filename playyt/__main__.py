@@ -20,8 +20,8 @@ def playyt():
         return titles[0],youtube_link
     def interface():
         os.system('cd songs')
-        os.system('clear')
         while 1:
+            os.system('clear')
             files = [f for f in os.listdir(os.getcwd()+'/songs') ]
             i=0
             for file in files:
@@ -41,7 +41,7 @@ def playyt():
                 os.system(cmd)
             else:
                 title=files[int(choice)-1]
-                cmd="termux-media-player play '"+title
+                cmd="termux-media-player play '"+title+"'"
                 os.system(cmd)
     interface()
     
