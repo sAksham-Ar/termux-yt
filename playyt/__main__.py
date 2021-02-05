@@ -34,11 +34,11 @@ def playyt():
             choice=input()
             if choice=='n':
                 os.system('termux-media-player stop')
-                current=min(current+1,len(files)-1)
+                current=min(current+1,len(files))
                 choice=current
             elif choice =='p':
                 os.system('termux-media-player stop')
-                current=max(current-1,0)
+                current=max(current-1,1)
                 choice=current
             if choice=='q':
                 os.system('clear')
@@ -58,7 +58,7 @@ def playyt():
                 os.system(cmd)
             else:
                 title=files[int(choice)-1]
-                current=int(choice)-1
+                current=int(choice)
                 cmd="termux-media-player play 'songs/"+title+"'"
                 os.system(cmd)
     interface()
