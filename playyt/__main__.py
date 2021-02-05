@@ -36,7 +36,7 @@ def playyt():
                 os.system('termux-media-player stop')
                 current=min(current+1,len(files))
                 choice=current
-            elif choice =='p':
+            elif choice =='pr':
                 os.system('termux-media-player stop')
                 current=max(current-1,1)
                 choice=current
@@ -51,6 +51,7 @@ def playyt():
                 cmd="youtube-dl --add-metadata --audio-format mp3 -x -o '%(title)s.%(ext)s' "+link
                 os.system(cmd)
             elif choice=='p':
+                os.system('termux-media-player stop')
                 cmd="termx-media-player pause"
                 os.system(cmd)
             elif choice=='r':
